@@ -1,0 +1,49 @@
+http://hspbd.com/HSP-MIS/stipend
+http://hspbd.com/HSP-MIS/login
+
+
+*github a/c name & password*
+mdsayedarif84
+fs84@fairya
+
+*Computer keybord shortcut* 
+ctrl+shift+t button when press in keybord,after show in result ,find out a loss tab in browser.
+ctrl+L loss mouse pointer find out address bar.
+ctrl+shit+tab go to one window to another window.
+ctrl+shift+n open a new folder.
+
+
+advced automatic serial number formula =IF(F3>0,1,"") ,this formula write the 1st cell
+this formula write the 2nd cell		=IF(F4>0,MAX($E$3:E3)+1,"")
+
+*Template download link*
+https://www.phpweb.org/website-templates/e-commerce-and-shopping.html
+*login panel link*
+https://colorlib.com/wp/cat/login-forms/
+
+*Git command*
+git config --global user.name "mdsayedarif84"->git config --global user.email "mdsayedarif84@gmail.com->
+git clone url copy kre paste krte hbe->cd repository name->git status->git add . ->git commit -m "text"->git push->if file don't push while u can do another
+command ->git pull-> then give to -> git push command. finally upload file complete.
+
+* Laravel command
+laravel dowlnload command-> composer require laravel/laravel project name
+
+*install-ui-auth-package
+composer require laravel/ui->php artisan ui vue --auth->npm install & npm run dev
+
+*create table with migration command
+php artisan make:model Category -m
+
+*laravel collective form install
+composer require laravelcollective/html->after got to config file->then go app.php-> find out provides & alies this file
+‘providers’ => [Collective\Html\HtmlServiceProvider::class,]
+'alies	=> [“Form” => Collective\Html\FormFacde::class,
+		‘Html’ => Collective\Html\HtmlFacde::class,]
+#shopping cart intall command
+composer require hardevine/shoppingcart
+*laravel dom pdf download-site link->https://www.positronx.io/laravel-pdf-tutorial-generate-pdf-with-dompdf-in-laravel/
+composer require barryvdh/laravel-dompdf ->after do it->
+'providers' => [Barryvdh\DomPDF\ServiceProvider::class,],
+'aliases' =>['PDF' => Barryvdh\DomPDF\Facade::class,] -> after command
+php artisan vendor:publish
