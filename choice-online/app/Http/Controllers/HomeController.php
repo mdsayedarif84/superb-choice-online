@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use DB;
 class HomeController extends Controller
 {
     /**
@@ -21,8 +21,13 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
-    {
-        return view('admin.home.home');
+    public function index(){
+        $totals = [
+            'users'=> DB::table('users')->count(),
+            'customers'=> DB::table('customers')->count()
+        ];
+    $totalSells     =   DB::table('order_details')->select('order_details.*')->get();
+    // return $totalSells;
+        return view('admin.home.home',compact('totals','totalSells'));
     }
 }

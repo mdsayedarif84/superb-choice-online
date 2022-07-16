@@ -52,7 +52,7 @@
                                                     {!! Form::close() !!}
                                                 </td>
                                                 <td class="a-center movewishlist"><span class="cart-price">
-                                                        <span class="price">{!! $total =$cartProduct->price* $cartProduct->qty !!}</span> </span>
+                                                        <span class="price">{!! $total =$cartProduct->price* $cartProduct->qty !!}</span> 
                                                 </td>
                                                 <td class="a-center last">
                                                     <a href="{!! route('delete-cart-item',['rowId'=>$cartProduct->rowId]) !!}" class="button remove-item " title="Remove item" ><span><span>Remove item</span></span></a>
