@@ -4,17 +4,14 @@
 @endsection
 @section('body')
     <div class="container-fluid">
-
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
             <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                     class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
         </div>
-
         <!-- Content Row -->
         <div class="row">
-
             <!-- Earnings (Monthly) Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
                 <div class="card border-left-primary shadow h-100 py-2">
@@ -27,6 +24,9 @@
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                            </div>
+                            <div class="">
+                                <a href="{{ route('manage-order') }}">View More</a>
                             </div>
                         </div>
                     </div>
@@ -42,13 +42,13 @@
                                 <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                     Total Sells
                                 </div>
-                                @php( $sum = 0)
+                                <!-- @php( $sum = 0)
                                 @foreach( $totalSells as $totalSell )
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">
                                     <input type="hidden" value="{!! $total =$totalSell->product_price* $totalSell->product_quantity !!}">
                                 </div>
                                 @php($sum = $sum+$total)
-                                @endforeach
+                                @endforeach -->
                                 <span class="price">Tk. {!! $sum !!}</span>
                             </div>
                             <div class="col-auto">
@@ -65,11 +65,11 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
+                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Total Categories
                                 </div>
                                 <div class="row no-gutters align-items-center">
                                     <div class="col-auto">
-                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ $totals['categories'] }}</div>
                                     </div>
                                     <div class="col">
                                         <div class="progress progress-sm mr-2">
@@ -82,6 +82,9 @@
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                            </div>
+                            <div class="">
+                                <a href="{{ route('manage-category') }}">View More</a>
                             </div>
                         </div>
                     </div>
@@ -101,16 +104,17 @@
                             <div class="col-auto">
                                 <i class="fas fa-comments fa-2x text-gray-300"></i>
                             </div>
+                            <div class="">
+                                <a href="{{ route('manage-user') }}">View More</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
         <!-- Content Row -->
 
         <div class="row">
-
             <!-- Area Chart -->
             <div class="col-xl-8 col-lg-7">
                 <div class="card shadow mb-4">
@@ -141,7 +145,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- Pie Chart -->
             <div class="col-xl-4 col-lg-5">
                 <div class="card shadow mb-4">
@@ -170,27 +173,46 @@
                             <canvas id="myPieChart"></canvas>
                         </div>
                         <div class="mt-4 text-center small">
-                                            <span class="mr-2">
-                                                <i class="fas fa-circle text-primary"></i> Direct
-                                            </span>
                             <span class="mr-2">
-                                                <i class="fas fa-circle text-success"></i> Social
-                                            </span>
+                                <i class="fas fa-circle text-primary"></i> Direct</span>
                             <span class="mr-2">
-                                                <i class="fas fa-circle text-info"></i> Referral
-                                            </span>
+                                <i class="fas fa-circle text-success"></i> Social
+                            </span>
+                            <span class="mr-2">
+                                <i class="fas fa-circle text-info"></i> Referral
+                            </span>
+                            <span class="mr-2">
+                                <i class="fas fa-circle text-danger"></i> Test
+                            </span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- user Chart -->
+        <div class="row">
+            <!-- Area Chart -->
+            <div class="col-xl-12 col-lg-12">
+                <div class="card shadow mb-4">
+                    <div
+                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">User Overview</h6>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <div class="chart-area">
+                            <canvas id="userChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>            
+        </div>
+        <!-- user chart end -->
 
         <!-- Content Row -->
         <div class="row">
-
             <!-- Content Column -->
             <div class="col-lg-6 mb-4">
-
                 <!-- Project Card Example -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
@@ -297,11 +319,8 @@
                         </div>
                     </div>
                 </div>
-
             </div>
-
             <div class="col-lg-6 mb-4">
-
                 <!-- Illustrations -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
@@ -320,7 +339,6 @@
                             unDraw &rarr;</a>
                     </div>
                 </div>
-
                 <!-- Approach -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
@@ -334,9 +352,54 @@
                             Bootstrap framework, especially the utility classes.</p>
                     </div>
                 </div>
-
             </div>
         </div>
-
     </div>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script>
+        var datas    = <?php echo json_encode($datas) ?>
+
+        Highcharts.chart('userChart',{
+            title:{
+                text:'New User Growth, 2022'
+            },
+            subtitle:{
+                text:'Source: Surface Me'
+            },
+            xAxis:{
+                categories:['Jan','Feb','Mar','Apr','May','Jun', 'July','Aug','Sep','Oct','Nov','Dec']
+            },
+            yAxis:{
+                text:'Number Of New User'
+            },
+            legend:{
+                layout:'vertical',
+                align:'right',
+                verticalAlign:'middle'
+            },
+            plotOptions:{
+                series:{
+                    allowPointSelect:true
+                }
+            },
+            series:[{
+                name:'New User',
+                data:datas
+            }],
+            responsive:{
+                rules:[{
+                    condition:{
+                        maxWidth:500
+                    },
+                    chartOptions:{
+                        legend:{
+                            layout:'horizontal',
+                            align:'center',
+                            verticalAlign:'bottom'
+                        }
+                    }
+                }]
+            }
+        })
+    </script>
 @endsection

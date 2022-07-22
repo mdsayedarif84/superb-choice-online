@@ -1,6 +1,6 @@
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+<ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion" id="accordionSidebar">
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('home') }}">
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div>
@@ -52,6 +52,24 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item" href="{!! route('add-brand') !!}">Add Brand</a>
                 <a class="collapse-item" href="{!! route('manage-brand') !!}">Manage Brand</a>
+            </div>
+        </div>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+    <!-- Nav Item - Utilities Collapse Menu -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#User"
+           aria-expanded="true" aria-controls="collapseUtilities">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>User Manggement</span>
+        </a>
+        <div id="User" class="collapse" aria-labelledby="headingUtilities"
+             data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="">Add User</a>
+                <a class="collapse-item" href="{!! route('manage-user') !!}">Manage Brand</a>
             </div>
         </div>
     </li>

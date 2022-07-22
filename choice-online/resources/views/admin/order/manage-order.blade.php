@@ -41,9 +41,6 @@
                         <a class="btn btn-primary btn-sm" href="{!! route('download-order-invoice', ['id'=>$order->id]) !!}" title="Download Order Invoice">
                             <span class=" fas fa-download fa-sm"></span>
                         </a>
-                        <a class="btn btn-success btn-sm" href="" title="Edit Order">
-                            <span class=" fas fa-edit fa-sm"></span>
-                        </a>
                         <a href="" onclick="return confirm('Are you sure to delete this ??')" class="btn btn-danger btn-sm" title="Delete Order">
                             <span class=" fa fa-trash fa-sm"></span>
                         </a>

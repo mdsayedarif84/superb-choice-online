@@ -1,6 +1,8 @@
     <?php
+    
     use Illuminate\Support\Facades\Route;
     use App\Http\Controllers;
+
     //front-end route
     Route::get('/', [
         'uses'=> 'App\Http\Controllers\ChoiceOnlineController@index',
@@ -111,6 +113,10 @@
             [ App\Http\controllers\BrandController::class,'updateBrand'] )->name('update-brand');
         Route::get('/brand/delete-brand/{id}',
             [ App\Http\controllers\BrandController::class,'deleteBrand'] )->name('delete-brand');
+
+        //User Section
+        Route::get('manage-user',
+            [ App\Http\controllers\UserController::class,'manageUser'] )->name('manage-user');
 
         //Product Section
         Route::get('/product/add',

@@ -28,6 +28,7 @@
         <link rel="stylesheet" href="{{ asset('') }}/admin/ckeditor/samples/css/samples.css">
         <link rel="stylesheet" href="{{ asset('') }}/admin/ckeditor/samples/toolbarconfigurator/lib/codemirror/neo.css">
         <!--ckeditor/ckeditor end -->
+        
     </head>
 
     <body id="page-top">
@@ -87,25 +88,28 @@
         </div>
 
         <!-- Bootstrap core JavaScript-->
-        <script src="{!! asset('/admin') !!}/dashboard/vendor/jquery/jquery.min.js"></script>
-        <script src="{!! asset('/admin') !!}/dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="{!! asset('/admin/dashboard/vendor/jquery/jquery.min.js') !!}"></script>
+        <script src="{!! asset('/admin/dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js') !!}"></script>
 
         <!-- Core plugin JavaScript-->
-        <script src="{!! asset('/admin') !!}/dashboard/vendor/jquery-easing/jquery.easing.min.js"></script>
+        <script src="{!! asset('/admin/dashboard/vendor/jquery-easing/jquery.easing.min.js') !!}"></script>
         <!-- Custom scripts for all pages-->
-        <script src="{!! asset('/admin') !!}/dashboard/js/sb-admin-2.min.js"></script>
+        <script src="{!! asset('/admin/dashboard/js/sb-admin-2.min.js') !!}"></script>
         <!-- Page level plugins -->
-        <script src="{!! asset('/admin') !!}/dashboard/vendor/chart.js/Chart.min.js"></script>
+        <script src="{!! asset('admin/dashboard/vendor/chart.js/Chart.min.js') !!}"></script>
 
         <!-- Page level custom scripts -->
-        <script src="{!! asset('/admin') !!}/dashboard/js/demo/chart-area-demo.js"></script>
-        <script src="{!! asset('/admin') !!}/dashboard/js/demo/chart-pie-demo.js"></script>
+        <script src="{!! asset('/admin/dashboard/js/demo/chart-area-demo.js') !!}"></script>
+        <script src="{!! asset('/admin/dashboard/js/demo/chart-pie-demo.js') !!}"></script>
         <!-- Page level plugins -->
         {{--    data table script--}}
-        <script src="{!! asset('/admin') !!}/dashboard/vendor/datatables/jquery.dataTables.min.js"></script>
-        <script src="{!! asset('/admin') !!}/dashboard/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+        <script src="{!! asset('/admin/dashboard/vendor/datatables/jquery.dataTables.min.js') !!}"></script>
+        <script src="{!! asset('/admin/dashboard/vendor/datatables/dataTables.bootstrap4.min.js') !!}"></script>
         <!-- Page level custom scripts -->
-        <script src="{!! asset('/admin') !!}/dashboard/js/demo/datatables-demo.js"></script>
+        <script src="{!! asset('/admin/dashboard/js/demo/datatables-demo.js') !!}"></script>
+        <!-- highChart -->
+        <script src="{!! asset('/admin/dashboard/js/highChart.js') !!}"></script>
+        <!-- <script src="https://code.highcharts.com/highcharts.js"></script> -->
         <script>
             $(document).ready(function (){
                 $('#msg').click(function (){
