@@ -146,6 +146,9 @@
             [ App\Http\controllers\OrderController::class,'viewOrderInvoice'] )->name('view-order-invoice');
         Route::get('/order/download-order-invoice/{id}',
             [ App\Http\controllers\OrderController::class,'downloadOrderInvoice'] )->name('download-order-invoice');
+
+        Route::get('/chart',
+            [ App\Http\controllers\ChartController::class,'userChart'] )->name('chart');
     });
 
 

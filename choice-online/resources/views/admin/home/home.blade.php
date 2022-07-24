@@ -113,7 +113,6 @@
             </div>
         </div>
         <!-- Content Row -->
-
         <div class="row">
             <!-- Area Chart -->
             <div class="col-xl-8 col-lg-7">
@@ -123,24 +122,19 @@
                         class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                         <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
                         <div class="dropdown no-arrow">
-                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                 aria-labelledby="dropdownMenuLink">
-                                <div class="dropdown-header">Dropdown Header:</div>
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
+                            <select name="chart" id="chart" onchange="chartFunction()" class="form-control ">
+                                <option >Select Chart</option>
+                                <option  value="pie">Pie</option>
+                                <option  value="column">Column</option>
+                                <option  value="pyramid">Pyramid</option>
+                                <option  value="bar">Bar</option>
+                            </select>
                         </div>
                     </div>
                     <!-- Card Body -->
                     <div class="card-body">
                         <div class="chart-area">
-                            <canvas id="myAreaChart"></canvas>
+                            <div id="chartContainer" style="height: 300px; width: 100%;"></div>
                         </div>
                     </div>
                 </div>
@@ -194,15 +188,12 @@
             <!-- Area Chart -->
             <div class="col-xl-12 col-lg-12">
                 <div class="card shadow mb-4">
-                    <div
-                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <div class="card-header ">
                         <h6 class="m-0 font-weight-bold text-primary">User Overview</h6>
                     </div>
                     <!-- Card Body -->
-                    <div class="card-body">
-                        <div class="chart-area">
-                            <canvas id="userChart"></canvas>
-                        </div>
+                    <div class="card-body dark">
+                        <div id="userChart"></div>
                     </div>
                 </div>
             </div>            
@@ -355,7 +346,8 @@
             </div>
         </div>
     </div>
-    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="{!! asset('admin/dashboard/js/highChart.js') !!}"></script>
+    <script src="{!! asset('admin/dashboard/js/CanvasJS.js') !!}"></script>
     <script>
         var datas    = <?php echo json_encode($datas) ?>
 
@@ -364,7 +356,7 @@
                 text:'New User Growth, 2022'
             },
             subtitle:{
-                text:'Source: Surface Me'
+                text:'Source: User Login'
             },
             xAxis:{
                 categories:['Jan','Feb','Mar','Apr','May','Jun', 'July','Aug','Sep','Oct','Nov','Dec']
@@ -401,5 +393,54 @@
                 }]
             }
         })
+    </script>
+    <!-- <script>
+        function chartFunction() {
+            var productNamePrice = <?php echo json_encode($data) ?>
+
+            var chartType   =   document.getElementById('chart').value;
+            var chart = new CanvasJS.Chart("chartContainer", {
+                animationEnabled: true,
+                theme: "light2", // "light1", "light2", "dark1", "dark2"
+                title:{
+                    text: "Sell Product Reserves"
+                },
+                axisY: {
+                    title: "Reserves(Sell)"
+                },
+                data: [{        
+                    type: "column",  
+                    yValueFormatString: "###",  
+                    indexLebel: "{name}({price})",
+                    dataPoints: productNamePrice
+                }]
+            });
+            chart.render();
+        }
+    </script> -->
+    
+    <script>
+        var productNamePrice = <?php echo json_encode($data) ?>;
+
+        window.onload = function () {
+        var chart = new CanvasJS.Chart("chartContainer", {
+            animationEnabled: true,
+            theme: "light2", // "light1", "light2", "dark1", "dark2"
+            title:{
+                text: "Sells Product Growth"
+            },
+            axisY: {
+                title: "Reserves(Sells)"
+            },
+            data: [{        
+                type:"column",  
+                showInLegend: true, 
+                legendMarkerColor: "grey",
+                legendText: "Sells = Tk",
+                dataPoints:productNamePrice
+            }]
+        })
+        chart.render();
+        }
     </script>
 @endsection
