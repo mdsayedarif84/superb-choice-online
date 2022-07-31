@@ -21,12 +21,14 @@
                                                     <div class="form-group">
                                                         <label for="firstname">Firstname</label>
                                                         <input name="first_name" id="firstname" type="text" class="form-control">
+                                                        <span class="text-danger text-bold">{{ $errors->has('first_name') ? $errors->first('first_name') : ' ' }}</span>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="lastname">Lastname</label>
                                                         <input name="last_name" id="lastname" type="text" class="form-control">
+                                                        <span class="text-danger text-bold">{{ $errors->has('last_name') ? $errors->first('last_name') : ' ' }}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -34,25 +36,27 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="email">Email</label>||<span class="text-danger" id="res"></span>
-                                                            <input name="email" id="email" type="email" class="form-control">
+                                                        <label for="email">Email-</label><span class="text-danger" id="res"></span>
+                                                            <input name="email" id="email" type="email" class="form-control ">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group"><label for="company">Password</label>
-                                                        <input name="password" id="company" type="password" class="form-control">
+                                                        <input name="password" id="pwd" type="password" class="form-control">
+                                                        <span class="text-danger text-bold">{{ $errors->has('password') ? $errors->first('password') : ' ' }}</span>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="confirmPassword">Confirm Password</label>
-                                                        <input name="confirm_password" id="confirmPassword" type="confirm_password" class="form-control">
+                                                        <label for="confirmPassword">Confirm Password</label>-- <span id="message"></span>
+                                                        <input onkeyup='check();' name="confirm_password" id="cpwd" type="password" class="form-control">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="phone_number">Phone Number </label>
                                                         <input name="phone_number" id="phone_number" type="number" class="form-control">
+                                                        <span class="text-danger text-bold">{{ $errors->has('phone_number') ? $errors->first('phone_number') : ' ' }}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -62,11 +66,12 @@
                                                 <div class="col-md-6 col-lg-8">
                                                     <div class="form-group">
                                                         <input  name="address" id="address" placeholder="Address" class="form-control">
+                                                        <span class="text-danger text-bold">{{ $errors->has('address') ? $errors->first('address') : ' ' }}</span>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-lg-2"></div>
                                                 <div class="text-center col-md-12">
-                                                    <button type="submit" id="regBtn" class="btn btn-primary">
+                                                    <button name="btn" type="submit" id="regBtn" class="btn btn-primary">
                                                         <i class="fa fa-user-md"></i> Register
                                                     </button>
                                                 </div>
@@ -85,7 +90,7 @@
                                     <ul class="form-list">
                                         <li>
                                             <label for="email">Email Address <span class="required">*</span></label>
-                                            <input type="email" name="email" class="input-text" id="email"  >
+                                            <input type="email" name="email" class="input-text" id="email2"  >
                                         </li>
                                         <li>
                                             <label for="pass">Password <span class="required">*</span></label>
@@ -109,28 +114,34 @@
             var email    =   document.getElementById('email');
             email.onblur =   function (){
                 var email    =   document.getElementById('email').value;
-                var xmlHttp     =   new XMLHttpRequest();
-                var serverPage  =   "http://localhost/choic-online/public/ajax-email-check/"+email;
+                var xmlHttp     =   new XMLHttpRequest(); 
+                var serverPage  =   "http://localhost/superb-choice-online/choice-online/public/ajax-email-check/"+email;
                 xmlHttp.open('GET', serverPage);
                 xmlHttp.onreadystatechange  =   function (){
                     if (xmlHttp.readyState == 4 && xmlHttp.status  ==  200){
                         document.getElementById('res').innerHTML   =   xmlHttp.responseText;
-                        if (xmlHttp.responseText == 'This Email Already exist.Try new email'){
-                            document.getElementById('regBtn').disabled  =    true;
+                        if (xmlHttp.responseText == 'This Email Already exist!'){
+
+                            document.getElementById("regBtn").disabled = true;
                         }else {
-                            document.getElementById('regBtn').disabled  =    false;
+                            document.getElementById("regBtn").disabled = false;
                         }
                     }
                 }
                 xmlHttp.send(null);
             }
         </script>
-        <script>
-
-            $('#confirmPassword').blur(function (){
-                var password    =   $('#password').val();
-                var confirmPassword    =   $('#confirmPassword').val();
-                $('#fullName').text(password+' '+confirmPassword);
-            });
-        </script>
+        <script type="text/javascript">
+            var check = function() {
+                var pwd =   $('#pwd').val();
+                var cpwd =   $('#cpwd').val();
+                if (pwd == cpwd) {
+                    document.getElementById('message').style.color = 'green';
+                    document.getElementById('message').innerHTML = 'Password is matching';
+                } else{
+                    document.getElementById('message').style.color = 'red';
+                    document.getElementById('message').innerHTML = 'Password is not matching';
+                }
+            }
+    </script>
     @endsection

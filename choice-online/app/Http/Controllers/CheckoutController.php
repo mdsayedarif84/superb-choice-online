@@ -19,7 +19,12 @@ class CheckoutController extends Controller
     }
     public function customerSignUP(Request $request){
         $this->validate($request, [
-            'email'          => 'email|unique:customers,email'
+            'first_name'          => 'required',
+            'last_name'          => 'required',
+            'phone_number'          => 'required',
+            'password'          => 'required',
+            'address'          => 'required',
+            'email'          => 'email|unique:customers,email',
         ]);
 
         $customer                   =   new Customer();
@@ -115,9 +120,9 @@ class CheckoutController extends Controller
     public function ajaxEmailCheck($email){
         $customer=   Customer::where('email',$email)->first();
         if ($customer){
-            echo 'This Email Already exist.Try new email';
+            echo 'This Email Already exist!';
         }else{
-            echo 'Available';
+            echo '<span style="color:green;font-size:12px;">This email Available for you</span>';
         }
     }
 }

@@ -177,8 +177,8 @@
                                          data-volume="mute"
                                          data-videowidth="100%"
                                          data-videoheight="100%"
-                                         data-videomp4="{!! asset('/') !!}/front-end/images/bg1.mp4"
-                                         data-videowebm="{!! asset('/') !!}/front-end/images/bg1.webm"
+                                         data-videomp4="{!! asset('/') !!}/front-end/images/bg1.mp4 !!}" 
+                                         data-videowebm="{!! asset('/') !!}/front-end/images/bg1.webm !!}"
                                          data-videopreload="preload"
                                          data-videoloop="none"
                                          data-forceCover="1"
@@ -280,9 +280,9 @@
             <div class="promo-section">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"><img alt="promotion banner" src="{!! asset('/') !!}/product-image/Apple.jpg"></div>
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"><img alt="promotion banner" src="{!! asset('/') !!}/product-image/lenovo.jpg"></div>
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"><img alt="promotion banner" src="{!! asset('/') !!}/product-image/Yahma-200.jpg"></div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"><img alt="promotion banner" src="{!! asset('/product-image/Apple.jpg') !!}"></div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"><img alt="promotion banner" src="{!! asset('/product-image/lenovo.jpg') !!}"></div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"><img alt="promotion banner" src="{!! asset('/product-image/Yahma-200.jpg') !!}"></div>
                     </div>
                 </div>
             </div>
@@ -375,17 +375,16 @@
                                                         <li class="item-nav" data-type="order" data-catid="" data-orderby="featured" data-href="pdt_featured"><span class="title-navi">Featured</span></li>
                                                     </ul>
                                                 </div>
-                                                <!-- End Tab Nav -->
-                                                <!--Begin Tab Content -->
+                                                <!--Best seller -->
                                                 <div class="thm-pdt-content wide-5">
                                                     <div class="pdt-content is-loaded pdt_best_sales">
                                                         <ul class="pdt-list products-grid zoomOut play">
-                                                            @foreach( $newProducts as $newProduct)
+                                                            @foreach( $topSellsProducts as $topSellsProduct)
                                                                 <li class="item item-animate wide-first">
                                                                     <div class="item-inner col-sm-12" style="width: 400px;">
                                                                         <div class="item-img">
-                                                                            <div class="item-img-info"><a href="{!! route('product-details', ['id'=>$newProduct->id, 'name'=>$newProduct->product_name])  !!}" title="Retis lapen casen" class="product-image">
-                                                                                    <img src="{!! asset($newProduct->product_image) !!}" alt="Retis lapen casen">
+                                                                            <div class="item-img-info"><a href="{!! route('product-details', ['id'=>$topSellsProduct->product_id, 'name'=>$topSellsProduct->product_name])  !!}" title="Retis lapen casen" class="product-image">
+                                                                                    <img src="{!! asset($topSellsProduct->product_image) !!}" alt="Retis lapen casen">
                                                                                 </a>
 
                                                                                 <div class="actions">
@@ -408,10 +407,10 @@
                                                                         </div>
                                                                         <div class="item-info">
                                                                             <div class="info-inner">
-                                                                                <div class="item-title"><a href="#" title="Retis lapen casen">Retis lapen casen</a> </div>
+                                                                                <div class="item-title"><a href="#" title="Retis lapen casen">{{$topSellsProduct->product_name}}</a> </div>
                                                                                 <div class="item-content">
                                                                                     <div class="item-price">
-                                                                                        <div class="price-box"><span class="regular-price"><span class="price">$125.00</span> </span> </div>
+                                                                                        <div class="price-box"><span class="regular-price"><span class="price">{{$topSellsProduct->product_price}}</span> </span> </div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -421,13 +420,14 @@
                                                             @endforeach
                                                         </ul>
                                                     </div>
+                                                    <!-- New Arrivals -->
                                                     <div class="pdt-content pdt_new_arrivals is-loaded  tab-content-actived">
                                                         <ul class="pdt-list products-grid zoomOut play">
                                                             @foreach($newProducts as $newProduct)
                                                                 <li class="item item-animate wide-first">
                                                                     <div class="item-inner">
                                                                         <div class="item-img col-sm-12" style="width: 400px;">
-                                                                            <div class="item-img-info"><a href="{!! route('product-details', ['id'=>$newProduct->id, 'name'=>$newProduct->product_name]) !!}" title="Retis lapen casen" class="product-image">
+                                                                            <div class="item-img-info"><a href=" {{route('product-details', ['id'=>$newProduct->id, 'name'=>$newProduct->product_name])}} " title="Retis lapen casen" class="product-image">
                                                                                     <img src="{!! asset($newProduct->product_image) !!}" alt="Retis lapen casen">
                                                                                 </a>
                                                                                 <div class="actions">
@@ -465,6 +465,7 @@
                                                             @endforeach
                                                         </ul>
                                                     </div>
+                                                    <!--Featured -->
                                                     <div class="pdt-content pdt_featured is-loaded">
                                                         <ul class="pdt-list products-grid zoomOut play">
                                                             {{-- this function call from AppServiceProvider--}}
@@ -472,7 +473,7 @@
                                                                 <li class="item item-animate wide-first">
                                                                     <div class="item-inner col-sm-12" style="width: 400px;">
                                                                         <div class="item-img">
-                                                                                    <div class="item-img-info"><a href="#" title="Retis lapen casen" class="product-image">
+                                                                                    <div class="item-img-info"><a href="{{route('product-details', ['id'=>$product->id, 'name'=>$product->product_name])}}" title="Retis lapen casen" class="product-image">
                                                                                             <img src="{!! asset($product->product_image) !!}" alt="Retis lapen casen"></a>
                                                                                 <div class="actions">
                                                                                     <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
