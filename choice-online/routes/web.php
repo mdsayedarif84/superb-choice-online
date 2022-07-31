@@ -70,7 +70,6 @@
     Route::get('/ajax-email-check/{email}',
         [ App\Http\controllers\CheckoutController::class,'ajaxEmailCheck'] )->name('ajax-email-check');
 
-
     //Dashboard route
     Auth::routes();
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

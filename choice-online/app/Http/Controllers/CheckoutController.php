@@ -17,7 +17,7 @@ class CheckoutController extends Controller
     public function index(){
         return view('front-end.checkout.checkout');
     }
-    public function customerSignUP(Request $request){
+    protected function validateCheck($request){
         $this->validate($request, [
             'first_name'          => 'required',
             'last_name'          => 'required',
@@ -26,7 +26,8 @@ class CheckoutController extends Controller
             'address'          => 'required',
             'email'          => 'email|unique:customers,email',
         ]);
-
+    }
+    protected function customerSaveInfo($request){
         $customer                   =   new Customer();
         $customer->first_name       =   $request->first_name;
         $customer->last_name        =   $request->last_name;
@@ -35,6 +36,10 @@ class CheckoutController extends Controller
         $customer->phone_number     =   $request->phone_number;
         $customer->address          =   $request->address;
         $customer->save();
+    }
+    public function customerSignUP(Request $request){
+        $this->validateCheck($request);
+        $this->customerSaveInfo($request);  
         $customerId                 =   $customer->id;
         Session::put('customerId',$customerId);
         Session::put('customerName',$customer->first_name.' '.$customer->last_name);
@@ -62,6 +67,9 @@ class CheckoutController extends Controller
     public function paymentForm(){
         return view('front-end.checkout.payment');
     }
+    protected function newOrderInfo(Request $request){
+        
+    }
     public function newOrder(Request $request){
         $paymentType                = $request->payment_type;
         if ($paymentType            ==  'Cash'){
@@ -84,16 +92,16 @@ class CheckoutController extends Controller
                 $orderDetail->product_name      = $cartProduct->name;
                 $orderDetail->product_price     = $cartProduct->price;
                 $orderDetail->product_quantity  = $cartProduct->qty;
-                $orderDetail->save();
-            }
-            Cart::destroy();
-            return redirect('/complete/order');
+                $orderDetail->save();   
+        }
+        Cart::destroy();
+        return redirect('/complete/order');
         }else if($paymentType       == 'Paypal'){
         }else if ($paymentType      ==  'Bkash'){
         }
     }
     public function completeOrder() {
-        return 'Your order is finally success';
+        return view('front-end.checkout.complete-order')->with('message','Your order is finally success!!');
     }
     //customer login check
     public function customerLoginCheck(Request $request){

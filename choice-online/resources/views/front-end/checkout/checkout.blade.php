@@ -90,7 +90,7 @@
                                     <ul class="form-list">
                                         <li>
                                             <label for="email">Email Address <span class="required">*</span></label>
-                                            <input type="email" name="email" class="input-text" id="email2"  >
+                                            <input type="email" name="email" class="input-text" id="email"  >
                                         </li>
                                         <li>
                                             <label for="pass">Password <span class="required">*</span></label>
