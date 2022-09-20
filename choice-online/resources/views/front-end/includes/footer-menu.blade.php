@@ -11,8 +11,6 @@
                             <li><a href="#" title="About us">Order History</a></li>
                             <li><a href="#" title="faq">FAQ</a></li>
                             <li><a href="#" title="Popular Searches">Specials</a></li>
-                            <li class="last"><a href="#" title="Where is my order?">Help Center</a></li>
-
                         </ul>
                     </div>
                     <div class="footer-column pull-left">
@@ -23,14 +21,15 @@
                             <li><a title="Addresses" href="#">Company</a></li>
                             <li><a title="Addresses" href="#">Investor Relations</a></li>
                             <li class="last"><a title="Orders History" href="#">Advanced Search</a></li>
-
                         </ul>
                     </div>
                     <div class="footer-column pull-left">
                         <h4>Brand</h4>
                         <ul class="links">
                             @foreach( $brands as $brand)
-                                <li class="first"><a href="#" title="About us">{!! $brand->brand_name !!}</a></li>
+                                <li class="first">
+                                    <a href="{{ route('brand-product',['id'=>$brand->id,'name'=>$brand->brand_name]) }}" title="About us">{!! $brand->brand_name !!}</a>
+                                </li>
                             @endforeach
                         </ul>
                     </div>
@@ -61,7 +60,6 @@
                                 <li class="youtube pull-left"><a href="#"></a></li>
                             </ul>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -73,12 +71,10 @@
             </address>
         </div>
     </div>
-
     <div class="footer-bottom">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-xs-12 coppyright">&copy; 2016 ThemesGround. All Rights Reserved.</div>
-
             </div>
         </div>
     </div>

@@ -1,9 +1,9 @@
-    @extends('front-end.master')
-    @section('title')
-        CategoryProduct
-    @endsection
-    @section('body')
-        <div class="breadcrumbs">
+@extends('front-end.master')
+@section('title')
+    BrandProduct
+@endsection
+@section('body')
+    <div class="breadcrumbs">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
@@ -27,12 +27,12 @@
                                 <div id="category-desc-slider" class="product-flexslider hidden-buttons">
                                     <div class="slider-items slider-width-col1 owl-carousel owl-theme">
                                         <!-- Item -->
-                                        @foreach($categoryProducts as $categoryProduct)
-                                            <div class="item"> <a href="#"><img class="col-sm-12" style="height: 400px" alt="" src="{!! asset($categoryProduct->product_image) !!}"></a>
+                                        @foreach($brandProducts as $brandProduct)
+                                            <div class="item"> <a href="#"><img class="col-sm-12" style="height: 400px" alt="" src="{!! asset($brandProduct->product_image) !!}"></a>
                                                 <div class="cat-img-title cat-bg cat-box">
-                                                    <div class="small-tag"><span>Hot Sale</span> TK. {!!  $categoryProduct->product_price !!}</div>
-                                                    <h2 class="cat-heading">{!! $categoryProduct->product_name !!}</h2>
-                                                    <p>{!! $categoryProduct->short_description !!} </p>
+                                                    <div class="small-tag"><span>Hot Sale</span> TK. {!!  $brandProduct->product_price !!}</div>
+                                                    <h2 class="cat-heading">{!! $brandProduct->product_name !!}</h2>
+                                                    <p>{!! $brandProduct->short_description !!} </p>
                                                 </div>
                                             </div>
                                         @endforeach
@@ -92,18 +92,18 @@
                             </div>
                             <div class="category-products">
                                 <ul class="products-grid">
-                                    @foreach( $categoryProducts as $categoryProduct)
+                                    @foreach( $brandProducts as $brandProduct)
                                         <li class="item col-lg-4 col-md-3 col-sm-4 col-xs-6">
                                             <div class="item-inner">
                                                 <div class="item-img">
-                                                    <div class="item-img-info"><a href="{!! route('product-details',['id'=>$categoryProduct->id,'name'=>$categoryProduct->product_name]) !!}" title="Retis lapen casen" class="product-image">
-                                                            <img src="{!! asset($categoryProduct->product_image) !!}" alt="Retis lapen casen"></a>
+                                                    <div class="item-img-info"><a href="{!! route('product-details',['id'=>$brandProduct->id,'name'=>$brandProduct->product_name]) !!}" title="Retis lapen casen" class="product-image">
+                                                            <img src="{!! asset($brandProduct->product_image) !!}" alt="Retis lapen casen"></a>
                                                         <div class="new-label new-top-left">New</div>
                                                         <div class="actions">
                                                             <div class="quick-view-btn">
                                                                 <a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
                                                             <div class="link-wishlist">
-                                                                <a href="{!! route('product-details',['id'=>$categoryProduct->id,'name'=>$categoryProduct->product_name]) !!}" data-toggle="tooltip" data-placement="right" title="" data-original-title="product details"><span> Details</span></a></div>
+                                                                <a href="{!! route('product-details',['id'=>$brandProduct->id,'name'=>$brandProduct->product_name]) !!}" data-toggle="tooltip" data-placement="right" title="" data-original-title="product details"><span> Details</span></a></div>
                                                             <div class="link-compare">
                                                                 <a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Compare"><span>Add to Compare</span></a></div>
                                                             <div class="add_cart">
@@ -122,10 +122,10 @@
                                                 </div>
                                                 <div class="item-info">
                                                     <div class="info-inner">
-                                                        <div class="item-title"><a href="#" title="Retis lapen casen">{!! $categoryProduct->product_name !!}</a> </div>
+                                                        <div class="item-title"><a href="#" title="Retis lapen casen">{!! $brandProduct->product_name !!}</a> </div>
                                                         <div class="item-content">
                                                             <div class="item-price">
-                                                                <div class="price-box"><span class="regular-price"><span class="price">{!! $categoryProduct->product_price !!}</span> </span> </div>
+                                                                <div class="price-box"><span class="regular-price"><span class="price">{!! $brandProduct->product_price !!}</span> </span> </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -147,11 +147,11 @@
                                     <ul>
                                         <li> <a class="active" href="#/women.html">Category</a> <span class="subDropdown minus"></span>
                                             <ul class="level0_415" style="display:block">
-                                                @foreach( $categories as $category)
+                                                
                                                     <li>
-                                                        <a href="{!! route('category-product',['id'=>$category->id,'name'=>$category->category_name]) !!}"> {!! $category->category_name !!} </a> <span class="subDropdown plus"></span>
+                                                        <a href=""> Fabin </a> <span class="subDropdown plus"></span>
                                                     </li>
-                                                @endforeach
+                                               
                                             </ul>
                                         </li>
                                         <li> <a href="#/digital.html">Furniture</a> </li>
@@ -167,9 +167,9 @@
                                         <dt class="even">Brand</dt>
                                         <dd class="even">
                                             <ol>
-                                                @foreach($brands as $brand)
-                                                    <li> <a href="{{route('brand-product',['id'=>$brand->id,'name'=>$brand->brand_name])}}">{{$brand->brand_name}} </li>
-                                                @endforeach
+                                                
+                                                    <li> <a href="">fabin</li>
+                                                
                                                 
                                             </ol>
                                         </dd>
@@ -182,32 +182,4 @@
                 </div>
             </div>
         </section>
-        <div class="our-features-box">
-            <div class="container">
-                <ul>
-                    <li>
-                        <div class="feature-box red_bg"> <span class="icon-globe-alt"></span>
-                            <div class="content">
-                                <h3>FREE SHIPPING WORLDWIDE</h3>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="feature-box yellow_bg"> <span class="icon-support"></span>
-                            <div class="content">
-                            <h3>24/7 CUSTOMER SUPPORT</h3>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="last">
-                        <div class="feature-box brown_bg"> <span class="icon-share-alt"></span>
-                            <div class="content">
-                            <h3>RETURNS AND EXCHANGES</h3>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <!-- Main Container End -->
-    @endsection
+@endsection

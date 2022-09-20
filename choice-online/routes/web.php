@@ -12,9 +12,17 @@
         'uses'=> 'App\Http\Controllers\ChoiceOnlineController@categoryProduct',
         'as'=> 'category-product'
     ]);
+    Route::get('/brand/product/{id}/{name}',[
+        'uses'=> 'App\Http\Controllers\ChoiceOnlineController@brandProduct',
+        'as'=> 'brand-product'
+    ]);
     Route::get('/view-list-product', [
         'uses'=> 'App\Http\Controllers\ChoiceOnlineController@viewListProduct',
         'as'=> 'view-list-product'
+    ]);
+    Route::get('/view-grid-product', [
+        'uses'=> 'App\Http\Controllers\ChoiceOnlineController@viewGridProduct',
+        'as'=> 'view-grid'
     ]);
     Route::get('/product-details/{id}/{name}', [
         'uses'=> 'App\Http\Controllers\ChoiceOnlineController@productDetails',

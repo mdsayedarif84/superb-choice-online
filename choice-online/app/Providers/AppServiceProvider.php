@@ -44,6 +44,13 @@ class AppServiceProvider extends ServiceProvider{
         View::composer('front-end.category.category-product',function ($view){
             $view->with('categories', Category::where('publication_status',1)->get());
         });
+        //font-end/category-product blade show for sidebar
+        View::composer('front-end.category.category-product',function ($view){
+            $view->with('brands', Brand::where('publication_status',1)
+                ->orderBy('id','DESC')
+                ->take(7)
+                ->get());
+        });
         //front-end/product-details blade show for sidebar
         View::composer('front-end.category.product-details',function ($view){
             $view->with('categories', Category::where('publication_status',1)->get());

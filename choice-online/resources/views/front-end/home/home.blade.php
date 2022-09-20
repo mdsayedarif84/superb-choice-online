@@ -105,7 +105,7 @@
                                 <!-- SLIDE  -->
                                 <li data-index="rs-18" data-transition="zoomin" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="{!! asset('/') !!}/front-end/images/slide-img2.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Ken Burns" data-description="">
                                     <!-- MAIN IMAGE -->
-                                    <img src="{!! asset('/') !!}/front-end/images/slide-img2.jpg"  alt="">
+                                    <img src="{!! asset('/') !!}/front-end/images/softtech.jpg"  alt="">
                                     <!-- LAYERS -->
                                     <!-- LAYER NR. 1 -->
                                     <div class="tp-caption tp-shape tp-shapewrapper   tp-resizeme rs-parallaxlevel-0"
@@ -169,7 +169,7 @@
                                 <!-- SLIDE  -->
                                 <li data-index="rs-19" data-transition="zoomout" data-slotamount="default"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="{!! asset('/') !!}/front-end/images/video-img.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="HTML5 Video" data-description="">
                                     <!-- MAIN IMAGE -->
-                                    <img src="{!! asset('/') !!}/front-end/images/video-img.jpg"  alt="">
+                                    <img src="{!! asset('/front-end/images/video-img.jpg') !!}"  alt="">
                                     <!-- LAYERS -->
                                     <!-- BACKGROUND VIDEO LAYER -->
                                     <div class="rs-background-video-layer"
@@ -177,8 +177,8 @@
                                          data-volume="mute"
                                          data-videowidth="100%"
                                          data-videoheight="100%"
-                                         data-videomp4="{!! asset('/') !!}/front-end/images/bg1.mp4 !!}" 
-                                         data-videowebm="{!! asset('/') !!}/front-end/images/bg1.webm !!}"
+                                         data-videomp4="{!! asset('/front-end/images/bg1.mp4 ') !!}" 
+                                         data-videowebm="{!! asset('/front-end/images/bg1.webm ') !!}"
                                          data-videopreload="preload"
                                          data-videoloop="none"
                                          data-forceCover="1"
