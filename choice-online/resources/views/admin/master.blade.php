@@ -97,6 +97,5 @@
     <script>
         initSample();
     </script>
-
     </body>
 </html>

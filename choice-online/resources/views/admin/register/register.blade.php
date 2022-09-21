@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="{!! asset('/admin') !!}/register/fonts/material-icon/css/material-design-iconic-font.min.css">
 
     <!-- Main css -->
-{{--    <link rel="stylesheet" href="{!! asset('/admin') !!}/login/css/bootstrap.min.css">--}}
-    <link rel="stylesheet" href="{!! asset('/admin') !!}/register/css/style.css">
+<link rel="stylesheet" href="{!! asset('/admin') !!}/login/css/bootstrap.min.css">
+<link rel="stylesheet" href="{!! asset('/admin') !!}/register/css/style.css">
 </head>
 <body>
 <div class="main">
@@ -42,7 +42,7 @@
                 <div class="form-group">
                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
                            name="password" required autocomplete="new-password" placeholder="Password">
-                    <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
+                    <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password text-danger"></span>
                     <h3 class="res"> </h3>
                     @error('password')
                     <span class="invalid-feedback" role="alert">
@@ -53,8 +53,20 @@
                 <div class="form-group ">
                     <input id="password-confirm" type="password" class="form-control"
                            name="password_confirmation" required autocomplete="new-password">
-                    <span toggle="#password-confirm" class="zmdi zmdi-eye field-icon toggle-password"></span>
-
+                    <span toggle="#password-confirm" class="zmdi zmdi-eye field-icon toggle-password text-danger"></span>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group row ">
+                        <label class="col-sm-2">Role : <sup>*</sup></label>
+                        <div class="col-sm-10">
+                        <select class=" form-control" id="auth_type" name="auth_type">
+                            <option id="choseOption">Select</option>
+                            <option value="admin">Admin</option>
+                            <option value="user">User</option>
+                        </select>
+                        <span class="text-danger">{{ $errors->has('auth_type') ? $errors->first('auth_type') : ' ' }}</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="form-group">
                     <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />

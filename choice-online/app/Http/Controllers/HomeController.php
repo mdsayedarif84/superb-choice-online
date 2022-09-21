@@ -53,7 +53,6 @@ class HomeController extends Controller
             $datas[$month]  =   $users[$index] ;
         }
 
-
         $orderDetails  =  DB::table('order_details')->get('*')->toArray();
             foreach($orderDetails as $row ){
                 $data[]= array(

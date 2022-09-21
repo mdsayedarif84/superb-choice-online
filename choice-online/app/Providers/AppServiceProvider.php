@@ -37,9 +37,6 @@ class AppServiceProvider extends ServiceProvider{
                 ->get());
         });
 
-//        View::composer('front-end.category.view-list-product',function ($view){
-//            $view->with('products', Product::find('category_id')->get());
-//        });
         //font-end/category-product blade show for sidebar
         View::composer('front-end.category.category-product',function ($view){
             $view->with('categories', Category::where('publication_status',1)->get());

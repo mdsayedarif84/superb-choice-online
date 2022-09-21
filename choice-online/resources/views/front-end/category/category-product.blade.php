@@ -155,7 +155,6 @@
                                             </ul>
                                         </li>
                                         <li> <a href="#/digital.html">Furniture</a> </li>
-                                        <li class="last"> <a href="#/fashion.html">Kids</a> </li>
                                     </ul>
                                 </div>
                                 <!--box-content box-category-->

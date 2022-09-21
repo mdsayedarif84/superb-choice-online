@@ -5,7 +5,7 @@
 @section('body')
     <div class="container">
         <div class="text-center text-success">
-            <marquee direction="right"><h1 class="text-primary font-weight-bolder">Welcome Back Manage Category </h1></marquee>
+            <marquee direction="right"><h1 class="text-primary font-weight-bolder">Welcome Back User Manage  </h1></marquee>
         </div>
         <div class="card">
             <div class="card-header">
@@ -23,10 +23,10 @@
                                 <thead>
                                     <tr class="text-center text-uppercase text-info">
                                         <th>SL </th>
-                                        <th>ID </th>
                                         <th>User  Name</th>
-                                        <th>emmail</th>
+                                        <th>email</th>
                                         <th>Publication Status</th>
+                                        <th>Auth Type</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -35,20 +35,11 @@
                                 @foreach($users as $user)
                                     <tr class="text-center">
                                         <td>{{ $i++ }}</td>
-                                        <td>{{ $user->id }}</td>
                                         <td>{{ $user->name }}</td>
                                         <td>{{ $user->email }}</td>
                                         <td></td>
+                                        <td>{{ $user->auth_type }}</td>
                                         <td>
-                                            @if($user->publication_status == 1)
-                                                <a class="btn btn-info btn-sm" href="" title="Published">
-                                                    <span class=" fas fa-arrow-up fa-sm"></span>
-                                                </a>
-                                            @else
-                                                <a class="btn btn-warning btn-sm" href="" title="UnPublished">
-                                                    <span class=" fas fa-arrow-down fa-sm"></span>
-                                                </a>
-                                            @endif
                                             <a class="btn btn-success btn-sm" href="" title="Edit">
                                                 <span class=" fas fa-edit fa-sm"></span>
                                             </a>

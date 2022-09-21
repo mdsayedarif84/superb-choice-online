@@ -49,7 +49,8 @@ class ChoiceOnlineController extends Controller
     }
     public function viewListProduct(){
         $categoryProducts=Session::get('categoryProducts');
-        return view('front-end.category.view-list-product',compact('categoryProducts'));
+        $categories =   Category::where('publication_status',1)->get();
+        return view('front-end.category.view-list-product',compact('categoryProducts','categories'));
     }
     public function viewGridProduct(){
         $categoryProducts=Session::get('categoryProducts');
