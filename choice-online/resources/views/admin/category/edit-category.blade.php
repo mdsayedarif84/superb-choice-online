@@ -12,7 +12,7 @@
             <div class="card-body">
                 <div class="card">
                     <div class="card-header">
-                        <h4> Add Category
+                        <h4> Edit Category
                             <a href="{!! route('manage-category') !!}" class="btn btn-danger btn-sm float-right">
                                 <i class="far fa-hand-point-left"> </i>Back</a>
                         </h4>
@@ -24,6 +24,7 @@
                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                     <input type="text" name="category_name" class="form-control form-control-user" id="exampleFirstName"
                                            value="{!! $category->category_name !!}">
+                                        <span class="text-danger">{{ $errors->has('category_name') ? $errors->first('category_name') : ' ' }}</span>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group row">
@@ -33,6 +34,7 @@
                                                 <option value="1">Published</option>
                                                 <option value="0">Unpublished</option>
                                             </select>
+                                            <span class="text-danger">{{ $errors->has('publication_status') ? $errors->first('publication_status') : ' ' }}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -48,6 +50,7 @@
                                 <textarea type="text" name="category_description" class="form-control form-control-user" id="exampleInputEmail">
                                     {!! $category->category_description !!}
                                 </textarea>
+                                <span class="text-danger">{{ $errors->has('category_description') ? $errors->first('category_description') : ' ' }}</span>
                             </div>
 
                             <hr>

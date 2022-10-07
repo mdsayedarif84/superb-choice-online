@@ -23,7 +23,6 @@
                                 <thead>
                                     <tr class="text-center text-uppercase text-info">
                                         <th>SL </th>
-                                        <th>ID </th>
                                         <th>Category Name</th>
                                         <th>Category Description</th>
                                         <th>Publication Status</th>
@@ -35,7 +34,6 @@
                                 @foreach($categories as $category)
                                     <tr class="text-center">
                                         <td>{{ $i++ }}</td>
-                                        <td>{{ $category->id }}</td>
                                         <td>{{ $category->category_name }}</td>
                                         <td>{{ $category->category_description }}</td>
                                         <td>{{ $category->publication_status == 1 ? 'published' : 'Unpublished' }}</td>

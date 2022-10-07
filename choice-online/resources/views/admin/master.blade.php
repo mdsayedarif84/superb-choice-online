@@ -97,5 +97,6 @@
     <script>
         initSample();
     </script>
+    @stack('custom-script')
     </body>
 </html>

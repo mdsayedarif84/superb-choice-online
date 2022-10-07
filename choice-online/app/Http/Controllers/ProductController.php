@@ -24,9 +24,29 @@ class ProductController extends Controller
 
     protected function productInfoValidate($request)
     {
-        $this->validate($request, [
-            'product_name' => 'required'
-        ]);
+        $this->validate($request,
+            [
+                'category_id' => 'required',
+                'brand_id' => 'required',
+                'product_name' => 'required|unique:products|regex:/^[a-zA-Z\s]+$/|min:2',
+                'product_price' => 'required',
+                'short_description' => 'required',
+                'long_description' => 'required',
+                'product_quantity' => 'required',
+                'publication_status' => 'required',
+                'product_image' => 'required',
+            ],
+            [
+                'category_id.required' => 'Pls Choose Category name!',
+                'brand_id.required' => 'Pls Choose Brand name!',
+                'product_name.required' => 'You have to choose Product name!',
+                'product_price.required' => 'only number Accepted!',
+                'product_quantity.required' => 'Fill up the Quantity!',
+                'product_image.required' => 'Select the Image!',
+                'publication_status.required' => 'Please choose type status!',
+                'brand_description.required' => 'You have to choose Discription!'
+            ]
+        );
     }
 
     protected function productImageUpload($request)

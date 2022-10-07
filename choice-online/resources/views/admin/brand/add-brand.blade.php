@@ -21,7 +21,7 @@
                         {!! Form::open(['class'=>'user','route'=>'new-brand', 'method'=>'POST']) !!}
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                    {!! Form::text('brand_name', 'Brand Name',['class'=>'form-control form-control-user']) !!}
+                                    {!! Form::text('brand_name', '',['class'=>'form-control form-control-user','placeholder'=>'brand']) !!}
                                     <span class="text-danger">{{ $errors->has('brand_name') ? $errors->first('brand_name') : ' ' }}</span>
                                 </div>
                                 <div class="col-sm-6">
@@ -29,7 +29,7 @@
                                         {!! Form::label('publication_status','Publication Status',['class'=>'col-sm-4 col-md-4']) !!}
                                         <div class="col-sm-6">
                                             <select class="form-control" name="publication_status">
-                                                <option value="select">Select Option</option>
+                                                <option id="ctghide"></option>
                                                 <option value="1">Published</option>
                                                 <option value="0">Unpublished</option>
                                             </select>
@@ -61,3 +61,10 @@
         </div>
     </div>
 @endsection
+@push('custom-script')
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#ctghide").hide();
+        });
+    </script>
+@endpush

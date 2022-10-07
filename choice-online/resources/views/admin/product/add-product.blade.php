@@ -24,10 +24,10 @@
                                     <div class="form-group row">
                                         {!! Form::label('category_id','Category Name',['class'=>'col-sm-4 col-md-4 text-primary font-weight-bolder']) !!}
                                         <div class="col-sm-8">
-                                            <select class="form-control text-success font-weight-bolder" name="category_id">
-                                                <option value="select">Select Option</option>
+                                            <select name="category_id" class="form-control text-success font-weight-bolder" >
+                                                <option id="ctghide"></option>
                                                 @foreach($categories as $category)
-                                                <option value="{!! $category->id !!}">{!! $category->category_name !!}</option>
+                                                    <option value="{!! $category->id !!}">{!! $category->category_name !!}</option>
                                                 @endforeach
                                             </select>
                                             <span class="text-danger">{{ $errors->has('category_id') ? $errors->first('category_id') : ' ' }}</span>
@@ -38,10 +38,10 @@
                                     <div class="form-group row">
                                         {!! Form::label('brand_id','Brand Name',['class'=>'col-sm-4 col-md-4 text-primary font-weight-bolder']) !!}
                                         <div class="col-sm-8">
-                                            <select class="form-control text-success font-weight-bolder" name="brand_id">
-                                                <option value="select">Select Option</option>
+                                            <select name="brand_id" class="form-control text-success font-weight-bolder">
+                                                <option id="ctghide2"></option>
                                                 @foreach($brands as $brand)
-                                                <option value="{!! $brand->id !!}">{!! $brand->brand_name !!}</option>
+                                                    <option value="{!! $brand->id !!}">{!! $brand->brand_name !!}</option>
                                                 @endforeach
                                             </select>
                                             <span class="text-danger">{{ $errors->has('brand_id') ? $errors->first('brand_id') : ' ' }}</span>
@@ -54,7 +54,7 @@
                                     <div class="form-group row">
                                         {!! Form::label('product_name','Product Name',[ 'class'=>'col-sm-4 text-primary font-weight-bolder']) !!}
                                         <div class="col-sm-8">
-                                            {!! Form::text('product_name', '',['class'=>'form-control form-control-user']) !!}
+                                            {!! Form::text('product_name', '',['class'=>'form-control form-control-user','placeholder'=>'Product Name']) !!}
                                             <span class="text-danger">{{ $errors->has('product_name') ? $errors->first('product_name') : ' ' }}</span>
                                         </div>
                                     </div>
@@ -94,7 +94,7 @@
                                         {!! Form::label('publication_status',' Status',['class'=>'col-sm-3 col-md-3 text-primary font-weight-bolder']) !!}
                                         <div class="col-sm-9 col-md-9">
                                             <select class="form-control text-success font-weight-bolder" name="publication_status">
-                                                <option value="select">Select Status</option>
+                                                <option id="ctghide3"></option>
                                                 <option value="1">Published</option>
                                                 <option value="0">Unpublished</option>
                                             </select>
@@ -130,3 +130,16 @@
         </div>
     </div>
 @endsection
+@push('custom-script')
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#ctghide").hide();
+        });
+        $(document).ready(function() {
+            $("#ctghide2").hide();
+        });
+        $(document).ready(function() {
+            $("#ctghide3").hide();
+        });
+    </script>
+@endpush

@@ -25,7 +25,6 @@
                                 <thead>
                                     <tr class="text-center text-success text-uppercase">
                                         <th>SL</th>
-                                        <th>ID</th>
                                         <th>Brand Name</th>
                                         <th>Brand Description</th>
                                         <th>Publication Status</th>
@@ -37,7 +36,6 @@
                                     @foreach($brands as $brand)
                                         <tr class="text-center">
                                             <td>{{ $i++ }}</td>
-                                            <td>{{ $brand->id }}</td>
                                             <td>{{ $brand->brand_name }}</td>
                                             <td>{{ $brand->brand_description }}</td>
                                             <td>{{ $brand->publication_status == 1 ? 'published' : 'Unpublished' }}</td>

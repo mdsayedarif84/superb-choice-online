@@ -8,7 +8,19 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{!! asset('/admin') !!}/login/css/style.css">
+    <link rel="stylesheet" href="{!! asset('/admin/login/css/style.css') !!}">
+    <link rel="stylesheet" href="{!! asset('/admin/login/fonts/fontAwesome-4.7.0.css') !!}">
+    <style>
+        .fontpassword {
+            position: relative;
+        }
+        .fontpassword i{
+            position: absolute;
+            margin-left: 300px;
+            bottom: 15px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body class="img js-fullheight" style="background-image: url({!! asset('/admin') !!}/login/images/bg.jpg);">
 <section class="ftco-section">
@@ -32,10 +44,10 @@
                             </span>
                             @enderror
                         </div>
-                        <div class="form-group">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Password" required>
-                            <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
+                        <div class="form-group fontpassword">
+                            <label for="pwd" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                            <input id="pwd" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Password" required>
+                            <i id="togglePwd" class="fa fa-eye-slash" aria-hidden="true"></i>                            
                             @error('password')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -78,7 +90,23 @@
 <script src="{!! asset('/admin') !!}/login/js/jquery.min.js"></script>
 <script src="{!! asset('/admin') !!}/login/js/popper.js"></script>
 <script src="{!! asset('/admin') !!}/login/js/bootstrap.min.js"></script>
-<script src="j{!! asset('/admin') !!}/login/s/main.js"></script>
+<script src="{!! asset('/admin') !!}/login/s/main.js"></script>
+<script>
+    const togglePassword = document.querySelector('#togglePwd');
+    const password = document.querySelector('#pwd');
+    togglePassword.addEventListener('click', function (e) {
+        const type = (password.getAttribute('type')) === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
+        this.classList.toggle('fa-eye')
+        if(type=="password"){                
+            $("#togglePwd").addClass("fa-eye-slash");
+            $("#togglePwd").removeClass("fa-eye");
+        }else{
+            $("#togglePwd").addClass("fa-eye");
+            $("#togglePwd").removeClass("fa-eye-slash");                
+        }
+    });
+</script>
 
 </body>
 </html>

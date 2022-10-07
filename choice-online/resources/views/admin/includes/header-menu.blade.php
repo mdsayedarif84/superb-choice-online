@@ -119,6 +119,8 @@
                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                     {{ __('LogOut') }}
                 </a>
+                <i class="fas fa-eye-alt fa-sm fa-fw mr-2"></i>
+                    <span class="mr-2 d-none d-lg-inline  text-center text-danger">{{ Auth::user()->name }}</span>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf
                 </form>

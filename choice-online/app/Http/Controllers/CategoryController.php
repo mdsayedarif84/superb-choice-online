@@ -10,8 +10,23 @@ class CategoryController extends Controller
     public function addCategory(){
         return view('admin.category.add-category');
     }
+    protected function validationCategory($request){
+        $this->validate($request,
+            [
+                'category_name' => 'required|unique:categories|regex:/^[a-zA-Z\s]+$/',
+                'publication_status' => 'required',
+                'category_description' => 'required'
+            ],
+            [
+                'category_name.required' => 'You have to choose category name!',
+                'category_name.regex' => 'Letter & Space only Accepted!',
+                'publication_status.required' => 'Please choose type status!',
+                'category_description.required' => 'You have to choose Discription!'
+            ]
+        );
+    }
     public function saveCategoryInfo(Request $request){
-       //return $request->all();
+        $this->validationCategory($request);
         $category                           =   new Category();
         $category->category_name            =   $request->category_name;
         $category->category_description     =   $request->category_description;
@@ -41,6 +56,19 @@ class CategoryController extends Controller
         return view('admin.category.edit-category',['category'=>$category]);
     }
     public function updateCategory(Request $request){
+        $this->validate($request,
+            [
+                'category_name' => 'required|regex:/^[a-zA-Z\s]+$/',
+                'publication_status' => 'required',
+                'category_description' => 'required'
+            ],
+            [
+                'category_name.required' => 'You have to choose category name!',
+                'category_name.regex' => 'Letter & Space only Accepted!',
+                'publication_status.required' => 'Please choose type status!',
+                'category_description.required' => 'You have to choose Discription!'
+            ]
+        );
         $categoryById                           =   Category::find($request->category_id);
         $categoryById->category_name            =   $request->category_name;
         $categoryById->category_description     =   $request->category_description;

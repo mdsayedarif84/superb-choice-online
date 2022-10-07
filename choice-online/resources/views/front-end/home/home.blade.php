@@ -603,7 +603,6 @@
                     </ul>
                 </div>
             </div>
-
         </div>
         <div id="mobile-menu">
             <ul>

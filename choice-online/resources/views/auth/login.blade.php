@@ -1,16 +1,13 @@
 @extends('layouts.app')
-
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
-
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
-
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
@@ -24,12 +21,12 @@
                                 @enderror
                             </div>
                         </div>
-
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                <i class="fa-sharp fa-solid fa-eye-slash"></i>
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -38,7 +35,6 @@
                                 @enderror
                             </div>
                         </div>
-
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
@@ -51,13 +47,11 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
                                 </button>
-
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
@@ -72,3 +66,20 @@
     </div>
 </div>
 @endsection
+@push('custom-script')
+    <script>
+        const togglePassword = document.querySelector('#togglePwd');
+        const password = document.querySelector('#pwd');
+        togglePassword.addEventListener('click', function (e) {
+            const type = (password.getAttribute('type')) === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+            if(type=="password"){                
+                $("#togglePwd").addClass("fa-eye-slash");
+                $("#togglePwd").removeClass("fa-eye");
+            }else{
+                $("#togglePwd").addClass("fa-eye");
+                $("#togglePwd").removeClass("fa-eye-slash");                
+            }
+        });
+    </script>
+@endpush

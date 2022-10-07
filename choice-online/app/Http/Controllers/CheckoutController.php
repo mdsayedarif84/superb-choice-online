@@ -21,7 +21,7 @@ class CheckoutController extends Controller
         $this->validate($request, [
             'first_name'          => 'required',
             'last_name'          => 'required',
-            'phone_number'          => 'required',
+            'phone_number'          => 'required|min:11',
             'password'          => 'required',
             'address'          => 'required',
             'email'          => 'email|unique:customers,email',

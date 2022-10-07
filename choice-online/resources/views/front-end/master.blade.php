@@ -56,18 +56,18 @@
     <!-- End Footer -->
 
 <!-- JavaScript -->
-<script type="text/javascript" src="{!! asset('/') !!}/front-end/js/jquery.min.js"></script>
-<script type="text/javascript" src="{!! asset('/') !!}/front-end/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="{!! asset('/') !!}/front-end/js/parallax.js"></script>
-<script type="text/javascript" src="{!! asset('/') !!}/front-end/js/common.js"></script>
-<script type="text/javascript" src="{!! asset('/') !!}/front-end/js/countdown.js"></script>
-<script type="text/javascript" src="{!! asset('/') !!}/front-end/js/jquery.flexslider.js"></script>
-<script type="text/javascript" src="{!! asset('/') !!}/front-end/js/owl.carousel.min.js"></script>
-<script type="text/javascript" src="{!! asset('/') !!}/front-end/js/jquery.mobile-menu.min.js"></script>
-<script type="text/javascript" src="{!! asset('/') !!}/front-end/js/revolution-slider.js"></script>
-<script type="text/javascript" src="{!! asset('/') !!}/front-end/js/revolution.extension.js"></script>
-<script type="text/javascript" src="{!! asset('/') !!}/front-end/js/cloud-zoom.js"></script>
-<script type="text/javascript" src="{!! asset('/') !!}/front-end/js/jquery.bxslider.min.js"></script>
+<script type="text/javascript" src="{!! asset('/front-end/js/jquery.min.js') !!}"></script>
+<script type="text/javascript" src="{!! asset('/front-end/js/bootstrap.min.js') !!}"></script>
+<script type="text/javascript" src="{!! asset('/front-end/js/parallax.js') !!}"></script>
+<script type="text/javascript" src="{!! asset('/front-end/js/common.js') !!}"></script>
+<script type="text/javascript" src="{!! asset('/front-end/js/countdown.js') !!}"></script>
+<script type="text/javascript" src="{!! asset('/front-end/js/jquery.flexslider.js') !!}"></script>
+<script type="text/javascript" src="{!! asset('/front-end/js/owl.carousel.min.js') !!}"></script>
+<script type="text/javascript" src="{!! asset('/front-end/js/jquery.mobile-menu.min.js') !!}"></script>
+<script type="text/javascript" src="{!! asset('/front-end/js/revolution-slider.js') !!}"></script>
+<script type="text/javascript" src="{!! asset('/front-end/js/revolution.extension.js') !!}"></script>
+<script type="text/javascript" src="{!! asset('/front-end/js/cloud-zoom.js') !!}"></script>
+<script type="text/javascript" src="{!! asset('/front-end/js/jquery.bxslider.min.js') !!}"></script>
 
 <script type="text/javascript">
     var dthen1 = new Date("12/25/17 11:59:00 PM");
@@ -198,7 +198,6 @@
         }
     });	/*ready*/
 </script>
-
 
 </body>
 </html>

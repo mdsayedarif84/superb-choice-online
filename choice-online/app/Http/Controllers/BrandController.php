@@ -12,11 +12,19 @@ class BrandController extends Controller
         return view('admin.brand.add-brand');
     }
     public function saveBrand(Request $request){
-        $this->validate($request,[
-            'brand_name'            =>  'required|regex:/(^([a-zA-Z]+)(\d+)?$)/u | max:10|min:2',
-            'brand_description'     =>  'required',
-            'publication_status'    =>  'required',
-        ]);
+        $this->validate($request,
+            [
+                'brand_name'            =>  'required|unique:brands|regex:/^[a-zA-Z\s]+$/|min:2',
+                'brand_description'     =>  'required',
+                'publication_status'    =>  'required',
+            ],
+            [
+                'brand_name.required' => 'You have to choose Brand name!',
+                'brand_name.regex' => 'Letter & Space only Accepted!',
+                'publication_status.required' => 'Please choose type status!',
+                'brand_description.required' => 'You have to choose Discription!'
+            ]
+        );
         $brand                          =   new Brand();
         $brand->brand_name              =   $request->brand_name;
         $brand->brand_description       =   $request->brand_description;
@@ -45,12 +53,20 @@ class BrandController extends Controller
         return view('admin.brand.edit-brand',['brand'=>$brand]);
     }
     public function updateBrand(Request $request){
-        $this->validate($request,[
-            'brand_name'            =>  'required|regex:/(^([a-zA-Z]+)(\d+)?$)/u | max:10|min:2',
-            'brand_description'     =>  'required',
-            'publication_status'    =>  'required',
-        ]);
-        $brand      =   Brand::find($request->brand_id);
+        $this->validate($request,
+            [
+                'brand_name'            =>  'required|regex:/^[a-zA-Z\s]+$/|min:2',
+                'brand_description'     =>  'required',
+                'publication_status'    =>  'required',
+            ],
+            [
+                'brand_name.required' => 'You have to choose Brand name!',
+                'brand_name.regex' => 'Letter & Space only Accepted!',
+                'publication_status.required' => 'Please choose type status!',
+                'brand_description.required' => 'You have to choose Discription!'
+            ]
+        );
+        $brand                          =   Brand::find($request->brand_id);
         $brand->brand_name              =   $request->brand_name;
         $brand->brand_description       =   $request->brand_description;
         $brand->publication_status      =   $request->publication_status;
