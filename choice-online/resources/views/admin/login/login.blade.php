@@ -47,7 +47,7 @@
                         <div class="form-group fontpassword">
                             <label for="pwd" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
                             <input id="pwd" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Password" required>
-                            <i id="togglePwd" class="fa fa-eye-slash" aria-hidden="true"></i>                            
+                            <i id="togglePwd" class="fa fa-eye-slash text-danger" aria-hidden="true"></i>                            
                             @error('password')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -59,8 +59,8 @@
                         </div>
                         <div class="form-group d-md-flex">
                             <div class="w-50">
-                                <label class="checkbox-wrap checkbox-primary">Remember Me
-                                    <input class="form-check-input" type="checkbox" name="remember"
+                                <label class="checkbox-wrap  checkbox-danger">Remember Me
+                                    <input class="form-check-input " type="checkbox" name="remember"
                                            id="remember" {{ old('remember') ? 'checked' : '' }}>
                                     <span class="checkmark"></span>
                                 </label>

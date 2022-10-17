@@ -1,6 +1,6 @@
-@php
+<!-- @php
     $auth_type =  Auth::user()->auth_type;
-@endphp
+@endphp -->
 <ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion" id="accordionSidebar">
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('home') }}">

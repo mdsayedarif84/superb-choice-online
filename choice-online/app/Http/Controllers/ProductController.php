@@ -29,7 +29,7 @@ class ProductController extends Controller
                 'category_id' => 'required',
                 'brand_id' => 'required',
                 'product_name' => 'required|unique:products|regex:/^[a-zA-Z\s]+$/|min:2',
-                'product_price' => 'required',
+                'product_price' => 'required|regex:/^\d*(\.\d{2})?$/',
                 'short_description' => 'required',
                 'long_description' => 'required',
                 'product_quantity' => 'required',
@@ -37,13 +37,14 @@ class ProductController extends Controller
                 'product_image' => 'required',
             ],
             [
-                'category_id.required' => 'Pls Choose Category name!',
+                'category_id.required' => 'Pls Select Category name!',
                 'brand_id.required' => 'Pls Choose Brand name!',
                 'product_name.required' => 'You have to choose Product name!',
+                'product_name.regex' => 'Only Use Letter',
                 'product_price.required' => 'only number Accepted!',
                 'product_quantity.required' => 'Fill up the Quantity!',
                 'product_image.required' => 'Select the Image!',
-                'publication_status.required' => 'Please choose type status!',
+                'publication_status.required' => 'PLs choose type status!',
                 'brand_description.required' => 'You have to choose Discription!'
             ]
         );

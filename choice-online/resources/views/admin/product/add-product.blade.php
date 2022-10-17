@@ -38,7 +38,7 @@
                                     <div class="form-group row">
                                         {!! Form::label('brand_id','Brand Name',['class'=>'col-sm-4 col-md-4 text-primary font-weight-bolder']) !!}
                                         <div class="col-sm-8">
-                                            <select name="brand_id" class="form-control text-success font-weight-bolder">
+                                            <select name="brand_id" class="form-control text-success font-weight-bolder" >
                                                 <option id="ctghide2"></option>
                                                 @foreach($brands as $brand)
                                                     <option value="{!! $brand->id !!}">{!! $brand->brand_name !!}</option>

@@ -17,13 +17,15 @@ class UserController extends Controller{
       //       $users =DB::table('users')
       //                ->where(['id'=>$userId])
       //                ->get('users.*');
-      //                dd($users);
+      //                //dd($users);
       //    return view('admin.user.manage-user',compact('users'));
       // }else{
       //    $users     =   User::all();
       //    return view('admin.user.manage-user',compact('users'));
       // }
          // 2nd way get data
+         //this session is catch in vendor/laravel/ui/auth-backend/AuthenticatesUsers.php
+         //protected function authenticated function session put
       $userId=Session::get('userId');
       $user =User::where('id',$userId)->get()->first();
       if($user->auth_type =="user" ){

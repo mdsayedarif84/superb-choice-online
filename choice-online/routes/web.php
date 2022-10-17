@@ -83,7 +83,7 @@
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
     //middleware
-    Route::group(['middleware'=>'login.check'],function(){
+    Route::group(['middleware'=>['login.check']],function(){
         
         //Category section
         Route::get('/category/add-category',
