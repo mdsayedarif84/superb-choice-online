@@ -29,7 +29,7 @@ class ProductController extends Controller
                 'category_id' => 'required',
                 'brand_id' => 'required',
                 'product_name' => 'required|unique:products|regex:/^[a-zA-Z\s]+$/|min:2',
-                'product_price' => 'required|regex:/^\d*(\.\d{2})?$/',
+                'product_price' => 'required',
                 'short_description' => 'required',
                 'long_description' => 'required',
                 'product_quantity' => 'required',
