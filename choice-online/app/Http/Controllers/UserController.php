@@ -24,11 +24,11 @@ class UserController extends Controller{
       //    return view('admin.user.manage-user',compact('users'));
       // }
          // 2nd way get data
+         // vendor/laravel/ui/auth-backend/AuthencatesUsers SessionPut UserId
       $userId=Session::get('userId');
       $user =User::where('id',$userId)->get()->first();
       if($user->auth_type =="user" ){
          $users =User::where('id',$user->id)->get();
-            // $users =$user;
          return view('admin.user.manage-user',compact('users'));
       }else{
          $users     =   User::all();
