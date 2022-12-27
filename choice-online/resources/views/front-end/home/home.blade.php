@@ -14,7 +14,7 @@
                                 <!-- SLIDE  -->
                                 <li data-index="rs-16" data-transition="zoomout" data-slotamount="default"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="{!! asset('/') !!}/front-end/images/slide-img1.jpg"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="1500" data-fsslotamount="7" data-saveperformance="off"  data-title="Intro" data-description="">
                                     <!-- MAIN IMAGE -->
-                                    <img src="{!! asset('/') !!}/front-end/images/slide-img1.jpg" alt="">
+                                    <img src="{!! asset('/front-end/images/Apple.jpg') !!}" alt="">
                                     <!-- LAYERS -->
                                     <!-- LAYER NR. 1 -->
                                     <div class="tp-caption NotGeneric-Title   tp-resizeme rs-parallaxlevel-0"
@@ -105,7 +105,7 @@
                                 <!-- SLIDE  -->
                                 <li data-index="rs-18" data-transition="zoomin" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="{!! asset('/') !!}/front-end/images/slide-img2.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Ken Burns" data-description="">
                                     <!-- MAIN IMAGE -->
-                                    <img src="{!! asset('/') !!}/front-end/images/softtech.jpg"  alt="">
+                                    <img src="{!! asset('/front-end/images/softtech.jpg') !!}"  alt="">
                                     <!-- LAYERS -->
                                     <!-- LAYER NR. 1 -->
                                     <div class="tp-caption tp-shape tp-shapewrapper   tp-resizeme rs-parallaxlevel-0"
@@ -280,9 +280,11 @@
             <div class="promo-section">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"><img alt="promotion banner" src="{!! asset('/product-image/Apple.jpg') !!}"></div>
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"><img alt="promotion banner" src="{!! asset('/product-image/lenovo.jpg') !!}"></div>
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"><img alt="promotion banner" src="{!! asset('/product-image/Yahma-200.jpg') !!}"></div>
+                        @foreach( $topSellsProducts as $topSellsProduct)
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <img alt="promotion banner" src="{!! asset($topSellsProduct->product_image) !!}">
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

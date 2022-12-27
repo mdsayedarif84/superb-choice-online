@@ -12,11 +12,28 @@ use Illuminate\Http\Request;
 class ChoiceOnlineController extends Controller
 {
     public function index(){
+        $topSellsProducts=$this->topsellsProduct($topSellsProducts);
         $newProducts    =   Product::where('publication_status',1)
                                 ->orderBy('id','DESC')
                                 ->take(8)
                                 ->get();
 
+
+        // $topSellsProducts   = DB::table('order_details')
+        //                     ->join('products', 'order_details.product_id','=','products.id')
+        //                     ->select('products.product_image','order_details.product_id','order_details.product_name','order_details.product_price',
+        //                             DB::raw('count(order_details.product_name) as count'))
+        //                     ->groupBy('order_details.product_id','order_details.product_name','product_price','products.product_image')
+        //                     ->orderBy('count','desc')
+        //                     ->take(3)
+        //                     ->get();
+                         //return $topSellsProducts;
+        return view('front-end.home.home',[
+           'newProducts'=>$newProducts,
+           'topSellsProducts'=>$topSellsProducts
+        ]);
+    }
+    public function topsellsProduct(){
         $topSellsProducts   = DB::table('order_details')
                             ->join('products', 'order_details.product_id','=','products.id')
                             ->select('products.product_image','order_details.product_id','order_details.product_name','order_details.product_price',
@@ -25,11 +42,7 @@ class ChoiceOnlineController extends Controller
                             ->orderBy('count','desc')
                             ->take(3)
                             ->get();
-                         //return $topSellsProducts;
-        return view('front-end.home.home',[
-           'newProducts'=>$newProducts,
-           'topSellsProducts'=>$topSellsProducts
-        ]);
+                    return $topSellsProducts;
     }
     public function categoryProduct($id){
         $categoryProducts   =   Product::where('category_id',$id)
@@ -58,6 +71,8 @@ class ChoiceOnlineController extends Controller
     }
     public function productDetails($id){
         $product  =  Product::find($id);
+        // $this->index($topSellsProducts);
+        //return $topSellsProducts;
         $topSellsProducts   = DB::table('order_details')
                             ->join('products', 'order_details.product_id','=','products.id')
                             ->select('products.product_image','order_details.product_id','order_details.product_name','order_details.product_price',
